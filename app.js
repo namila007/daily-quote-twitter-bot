@@ -37,11 +37,11 @@ app.get('/ping', function(req, res){
 //streaming on
 twitter
 
-// //daily quote for setinterval
-// setInterval(function(){dailyQuote},dayinMills)
+//daily quote for setinterval
+setInterval(function(){dailyQuote},dayinMills)
 
-// //hourly quote
-// setInterval(function() {hourlyQuote},hourinMills)
+//hourly quote
+setInterval(function() {hourlyQuote},hourinMills)
 
 //get tweet counts of the bot
 app.get('/count', async function (req, res){
@@ -54,8 +54,18 @@ app.get('/count', async function (req, res){
 //quote API
 app.get('/quote', async function (req, res){
     quotes(function(data){
-        const quote = data.data[0].content.replace(/<\/?[^>]+(>|$)/g, "")
-        const author = data.data[0].title
+        var quote = data.data[0].content.replace(/<\/?[^>]+(>|$)/g, "")
+        var author = data.data[0].title
+        
+        //transtlating numerical chars 
+        var regex = /&#(\d+);/g;
+        quote = quote.replace(regex, function(_, $1) {
+            return String.fromCharCode($1);
+        })
+        quote = quote.replace(/\n/g,"")
+        author = author.replace(regex, function(_, $1) {
+            return String.fromCharCode($1);
+        })
         res.send({quote: quote,
             author: author
         })

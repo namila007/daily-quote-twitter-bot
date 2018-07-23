@@ -1,7 +1,7 @@
 {
   "name": "breakingnews-bot",
   "version": "1.0.0",
-  "description": "twitter bot to alert sl breaking news",
+  "description": "A twitter bot who tweets quotes",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
