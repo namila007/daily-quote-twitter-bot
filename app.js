@@ -37,8 +37,9 @@ app.get('/ping', function(req, res){
 //streaming on
 twitter
 
-//daily quote for setinterval
-setInterval(function(){dailyQuote},dayinMills)
+//daily quote for setinterval ( that api has a limited rate for public, making tweet to send once 
+//a hour,if theres a new tweet + quota it will posted)
+setInterval(function(){dailyQuote},hourinMills)
 
 //hourly quote
 setInterval(function() {hourlyQuote},hourinMills)
