@@ -1,0 +1,44 @@
+{
+  "name": "breakingnews-bot",
+  "version": "1.0.0",
+  "description": "twitter bot to alert sl breaking news",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "mocha --exit test.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namila007/BreakingNews-bot.git"
+  },
+  "keywords": [
+    "twitter",
+    "bot",
+    "srilanka",
+    "quotes",
+    "inspire"
+  ],
+  "author": "Namila Bandara",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/namila007/BreakingNews-bot/issues"
+  },
+  "homepage": "https://github.com/namila007/BreakingNews-bot#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "mocha": "^5.2.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.2",
+    "path": "^0.12.7",
+    "request": "^2.87.0",
+    "twit": "^2.2.11"
+  }
+}
