@@ -10,8 +10,8 @@ const app = express()
 const quotes = require('./randomquote')
 const twitter = require('./stream.js')
 const tweetcount = require('./tweetcount.js')
-// const dailyQuote = require('./dailyQuote')
-// const hourlyQuote = require('./hourlyQuote')
+const dailyQuote = require('./dailyQuote')
+const hourlyQuote = require('./hourlyQuote')
 const dayinMills = 8.64e+7
 const hourinMills = 3.6e+6
 
@@ -37,9 +37,8 @@ app.get('/ping', function(req, res){
 //streaming on
 twitter
 
-//daily quote for setinterval ( that api has a limited rate for public, making tweet to send once 
-//a hour,if theres a new tweet + quota it will posted)
-setInterval(function(){dailyQuote},hourinMills)
+//daily quote for setinterval 
+setInterval(function(){dailyQuote},dayinMills)
 
 //hourly quote
 setInterval(function() {hourlyQuote},hourinMills)
