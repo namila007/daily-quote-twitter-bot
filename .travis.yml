@@ -2,3 +2,7 @@ language: node_js
 node_js:
   - "9"
 script: npm run test 
+deploy:
+  provider: heroku
+  api_key: ${heroku_key}
+  app: nb-twitter-bot
