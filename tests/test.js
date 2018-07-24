@@ -1,6 +1,6 @@
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let app = require('./app');
+let app = require('../app');
 let should = chai.should();
 
 chai.use(chaiHttp);
@@ -30,6 +30,7 @@ chai.use(chaiHttp);
             done()
           })
     })
+  })
   
     //test quote
     describe('/quote', () => {
@@ -42,7 +43,5 @@ chai.use(chaiHttp);
               done()
             })
       })  
-})
-
-    
+    })
 
