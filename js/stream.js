@@ -6,7 +6,7 @@ const axios = require('axios')
 var botid = config.botid  //bot user id
 
 //getting mentions and replying to the relevent thread
-var reply = T.stream('statuses/filter', { track: 'nb_bot007'  }) 
+var reply = T.stream('statuses/filter', { track: 'dquote_bot'  }) 
     console.log('stream on')
 reply.on('tweet', function(tweet){
   console.log("Hola! got a mention " +tweet.id_str)
