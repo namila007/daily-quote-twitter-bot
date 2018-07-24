@@ -9,5 +9,6 @@ module.exports = {
     port: process.env.PORT,
     host: process.env.HOST,
     userid: process.env.userid,
-    botid: process.env.botid
+    botid: process.env.botid,
+    env: process.env.NODE_ENV
 }

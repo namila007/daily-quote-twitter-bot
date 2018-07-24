@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "SET NODE_ENV=dev && nodemon app.js",
-    "test": "SET NODE_ENV=dev && mocha --exit ./tests/test.js "
+    "dev": "nodemon app.js",
+    "test": " mocha --exit ./tests/test.js "
   },
   "repository": {
     "type": "git",

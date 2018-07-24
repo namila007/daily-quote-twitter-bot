@@ -28,6 +28,7 @@ A twitter bot made by nodejs, using twitter api. this will post QOTD, hourly quo
 2. Clone the git
 
 3. make `.env` file and copy `.env.example` and add the relevant keys from twitter app
+set `NODE_ENV = 'dev'` for developing and `NODE_ENV = 'production'` for normal usage
 
 4. run `npm install`
 
