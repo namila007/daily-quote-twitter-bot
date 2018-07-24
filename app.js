@@ -12,7 +12,7 @@ const twitter = require('./stream.js')
 const tweetcount = require('./tweetcount.js')
 const dailyQuote = require('./dailyQuote')
 const hourlyQuote = require('./hourlyQuote')
-const dayinMills = 8.64e+7
+const dayinMills = 8.28e+7
 const hourinMills = 3.6e+6
 
 
@@ -34,14 +34,13 @@ app.get('/ping', function(req, res){
     res.status(200).send({"status": "ok"})
 })
 
-//streaming on
-twitter
 
 //daily quote for setinterval 
-setInterval(function(){dailyQuote},dayinMills)
+setInterval(function(){dailyQuote()},dayinMills)
 
 //hourly quote
-setInterval(function() {hourlyQuote},hourinMills)
+setInterval(function() {
+    hourlyQuote()},hourinMills)
 
 //get tweet counts of the bot
 app.get('/count', async function (req, res){
