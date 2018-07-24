@@ -1,13 +1,11 @@
 
   
 
-#  NB-Twitter Bot
+#  Daily-Quote-Twitter Bot
 
 ![nb bot](https://nb-twitter-bot.herokuapp.com/main.png)
 
   
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 [![Build Status](https://travis-ci.org/namila007/daily-quote-twitter-bot.svg?branch=master)](https://travis-ci.org/namila007/daily-quote-twitter-bot)
 
@@ -39,8 +37,7 @@ A twitter bot made by nodejs, using twitter api. this will post QOTD, hourly quo
 
 ##  Deploy
 
-User can deploy this to heroku. Create ` Config Vars` for each in `.env` file and deploy or simply press DEPLOY button. in `.env` files you cant add arrays.so need to add ids in the code
-
+User can deploy this to heroku. Create ` Config Vars` for each in `.env` file and deploy
   
 
 ##  API End Points
@@ -61,3 +58,5 @@ User can deploy this to heroku. Create ` Config Vars` for each in `.env` file an
 
  - return a ` HTTP Status 200 OK`
 
+
+#### this repo is derived from the [NB-personal-bot repo](https://github.com/namila007/nb-twitter-bot)

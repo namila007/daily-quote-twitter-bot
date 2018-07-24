@@ -19,6 +19,7 @@ chai.use(chaiHttp);
       })
   })
 
+  //test count
   describe('/count', () => {
     it('it should return object', (done) => {
       chai.request(app)
@@ -29,6 +30,18 @@ chai.use(chaiHttp);
             done()
           })
     })
+  
+    //test quote
+    describe('/quote', () => {
+      it('it should return object', (done) => {
+        chai.request(app)
+            .get('/quote')
+            .end((err, res) => {
+                res.should.have.status(200)
+                res.should.be.a('object')
+              done()
+            })
+      })  
 })
 
     

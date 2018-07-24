@@ -1,5 +1,5 @@
 const twit = require('twit')
-const config = require('./config/config')
+const config = require('../config/config')
 const T = new twit(config)
 const axios = require('axios')
 const quoteurl = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'

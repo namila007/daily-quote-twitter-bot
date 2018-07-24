@@ -1,5 +1,5 @@
 const twit = require('twit')
-const config = require('./config/config')
+const config = require('../config/config')
 const T = new twit(config)
 const axios = require('axios')
 
@@ -10,8 +10,9 @@ var reply = T.stream('statuses/filter', { track: 'nb_bot007'  })
     console.log('stream on')
 reply.on('tweet', function(tweet){
   console.log("Hola! got a mention " +tweet.id_str)
-  //here tweet id is not working, so try tweet string if
-  //replying to all tweets except bots userid 1018580921740492800
+  /*here tweet id is not working, so try tweet string if
+  * replying to all tweets except bots userid 1018580921740492800
+  */
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
     //sending random quote to the mention
     //quote is sliced to 210 max length

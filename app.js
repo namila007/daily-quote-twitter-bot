@@ -7,12 +7,12 @@ const path = require('path')
 const http = require('http')
 const app = express()
 
-const quotes = require('./randomquote')
-const twitter = require('./stream.js')
-const tweetcount = require('./tweetcount.js')
-const dailyQuote = require('./dailyQuote')
-const hourlyQuote = require('./hourlyQuote')
-const dayinMills = 8.28e+7
+const quotes = require('./js/randomquote')
+const twitter = require('./js/stream.js')
+const tweetcount = require('./js/tweetcount.js')
+const dailyQuote = require('./js/dailyQuote')
+const hourlyQuote = require('./js/hourlyQuote')
+const dayinMills = 4.32e+7 //12H daily quotes
 const hourinMills = 3.6e+6
 
 
@@ -38,14 +38,13 @@ app.get('/ping', function(req, res){
 //daily quote for setinterval 
 setInterval(function(){dailyQuote()},dayinMills)
 
-//hourly quote
+//hourly quote (12H used because the API has a rate limit)
 setInterval(function() {
     hourlyQuote()},hourinMills)
 
 //get tweet counts of the bot
 app.get('/count', async function (req, res){
     tweetcount(1018580921740492800,function(data){
-        //console.log(data)
         res.send({data})
     })
 })
@@ -57,7 +56,7 @@ app.get('/quote', async function (req, res){
         var author = data.data[0].title
         
         //transtlating numerical chars 
-        var regex = /&#(\d+);/g;
+        var regex = /&#(\d+);/g
         quote = quote.replace(regex, function(_, $1) {
             return String.fromCharCode($1);
         })

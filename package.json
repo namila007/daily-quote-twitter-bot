@@ -1,6 +1,6 @@
 {
-  "name": "breakingnews-bot",
-  "version": "1.0.0",
+  "name": "daily-quote-tweet-bot",
+  "version": "2.0.0",
   "description": "A twitter bot who tweets quotes",
   "main": "app.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namila007/BreakingNews-bot.git"
+    "url": "git+https://github.com/namila007/daily-quote-twitter-bot"
   },
   "keywords": [
     "twitter",
@@ -22,9 +22,9 @@
   "author": "Namila Bandara",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/namila007/BreakingNews-bot/issues"
+    "url": "https://github.com/namila007/daily-quote-twitter-bot/issues"
   },
-  "homepage": "https://github.com/namila007/BreakingNews-bot#readme",
+  "homepage": "https://github.com/namila007/daily-quote-twitter-bot#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
