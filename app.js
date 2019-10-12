@@ -52,8 +52,9 @@ app.get('/count', async function (req, res){
 //quote API
 app.get('/quote', async function (req, res){
     quotes(function(data){
-        var quote = data.data[0].content.replace(/<\/?[^>]+(>|$)/g, "")
-        var author = data.data[0].title
+      
+        var quote = data.data[0].excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+        var author = data.data[0].title.rendered
         
         //transtlating numerical chars 
         var regex = /&#(\d+);/g
@@ -64,6 +65,7 @@ app.get('/quote', async function (req, res){
         author = author.replace(regex, function(_, $1) {
             return String.fromCharCode($1);
         })
+        console.log(quote, author)
         res.send({quote: quote,
             author: author
         })
