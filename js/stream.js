@@ -16,7 +16,7 @@ reply.on('tweet', function(tweet){
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
     //sending random quote to the mention
     //quote is sliced to 210 max length
-    axios.get('http://twibot.projects.namila.me/quote').then((res)=>{
+    axios.get('http://twibot.namila.me/quote').then((res)=>{
         console.log(res.data)
 
         //sending a random tweet
