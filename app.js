@@ -8,6 +8,7 @@ const http = require('http')
 const app = express()
 
 const quotes = require('./js/randomquote')
+const GetQuotes = require('./js/readQuote')
 const twitter = require('./js/stream.js')
 const tweetcount = require('./js/tweetcount.js')
 const dailyQuote = require('./js/dailyQuote')
@@ -20,6 +21,9 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
+//initialize instance of getQuote
+const getQuoteInstance = new GetQuotes()
+
 //http server to serve view files
 const httpServer = http.Server(app);
 app.use(express.static(__dirname + '/views/'))
@@ -29,7 +33,7 @@ app.get('/', function(req, res){
     res.status(200).sendFile(path.join(__dirname + '/views/index.html'))
 })
 
-//ping to keep sit alive
+//ping to keep site alive
 app.get('/ping', function(req, res){
     res.status(200).send({"status": "ok"})
 })
@@ -50,10 +54,11 @@ app.get('/count', async function (req, res){
 })
 
 //quote API
-app.get('/quote', async function (req, res){
+app.get('/quote_old', async function (req, res){
     quotes(function(data){
-        var quote = data.data[0].content.replace(/<\/?[^>]+(>|$)/g, "")
-        var author = data.data[0].title
+      
+        var quote = data.data[0].excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+        var author = data.data[0].title.rendered
         
         //transtlating numerical chars 
         var regex = /&#(\d+);/g
@@ -64,11 +69,36 @@ app.get('/quote', async function (req, res){
         author = author.replace(regex, function(_, $1) {
             return String.fromCharCode($1);
         })
+        console.log(quote, author)
         res.send({quote: quote,
             author: author
         })
     })
 })
+
+//new Quote API
+app.get('/quote', async function (req, res){
+    
+    let data = getQuoteInstance.quote()
+    var quote = data.quote.replace(/<\/?[^>]+(>|$)/g, "")
+    var author = data.author
+    var category = data.category
+    //transtlating numerical chars 
+    var regex = /&#(\d+);/g
+    quote = quote.replace(regex, function(_, $1) {
+        return String.fromCharCode($1);
+    })
+    quote = quote.replace(/\n/g,"")
+    author = author.replace(regex, function(_, $1) {
+        return String.fromCharCode($1);
+    })
+    // console.log(quote, author, category)
+    res.send({quote: quote,
+        author: author,
+        category: category
+    })
+})
+
 
   //start listening  
 app.listen(config.port, config.host, (err) => {
