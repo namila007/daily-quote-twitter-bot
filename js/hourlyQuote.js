@@ -2,7 +2,7 @@ const twit = require('twit')
 const config = require('../config/config')
 const T = new twit(config)
 const axios = require('axios')
-const quoteurl = 'http://twibot.projects.namila.me/quote'
+const quoteurl = 'http://twibot.namila.me/quote'
  
 function hourlyQuote() { 
     axios.get(quoteurl).then((res)=>{
