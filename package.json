@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/namila007/daily-quote-twitter-bot#readme",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.19.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "csv-parser": "^2.3.1",
