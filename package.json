@@ -36,7 +36,7 @@
     "mocha": "^5.2.0",
     "morgan": "^1.9.1",
     "path": "^0.12.7",
-    "request": "^2.87.0",
+    "request": "^2.88.2",
     "twit": "^2.2.11"
   },
   "devDependencies": {
